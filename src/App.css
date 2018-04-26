@@ -1,0 +1,44 @@
+:root {
+  --lightBlue: #5cc6e9;
+}
+
+body {
+  margin: 0;
+}
+
+.mainContainer {
+  display: grid;
+  grid-template-rows: repeat(5, 60px auto 1000px);
+  width: 50vw;
+  margin: auto;
+  margin-top: 40px;
+  justify-items: center;
+  align-items: center;
+  color: var(--lightBlue);
+}
+
+.svgContainer {
+  border: 1px solid black;
+}
+
+.topBarContainer {
+  display: grid;
+  grid-gap: 5px;
+  position: fixed;
+  top: 0;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 100vw;
+}
+
+.topBarContainer button {
+  color: red;
+  background-color: white;
+  border: none;
+}
+
+.topBarContainer button:hover {
+  background-color: lightgrey;
+}
