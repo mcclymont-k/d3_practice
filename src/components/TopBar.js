@@ -6,7 +6,7 @@ class TopBar extends Component {
 
   smoothScroll(e){
     const target = Number(e.target.dataset.set)
-    const scrollDestination = target * 1860
+    const scrollDestination = target * 1900
     scroll.scrollTo(scrollDestination)
   }
 

@@ -8,7 +8,8 @@ body {
 
 .mainContainer {
   display: grid;
-  grid-template-rows: repeat(5, 60px auto 1000px);
+  grid-template-rows: repeat(5, 60px 40px auto 1000px);
+  grid-gap: 20px;
   width: 50vw;
   margin: auto;
   margin-top: 40px;
@@ -17,11 +18,17 @@ body {
   color: var(--lightBlue);
 }
 
+.mainContainer h2 {
+  color: black;
+  font-size: 10px;
+}
+
 .svgContainer {
   border: 1px solid black;
 }
 
 .topBarContainer {
+  background-color: white;
   display: grid;
   grid-gap: 5px;
   position: fixed;
