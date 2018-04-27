@@ -43,6 +43,10 @@ class PieChart extends Component {
       })
   }
 
+  angle(d) {
+    var a = (d.startAngle + d.endAngle) * 90 / Math.PI -90;
+    return a > 90 ? a - 180 : a;
+  }
 
   makeChart() {
     let lengthOfNames = this.state.nameLengths.length
@@ -75,14 +79,7 @@ class PieChart extends Component {
           .transition()
           .style('opacity', '0')
           .duration(300)
-
       )
-
-    function angle(d) {
-      var a = (d.startAngle + d.endAngle) * 90 / Math.PI -90;
-      console.log(a)
-      return a < 0 ? a : a - 180;
-    }
 
     g.append('text')
       .text((d) => {
@@ -90,15 +87,13 @@ class PieChart extends Component {
       })
       .attr('text-anchor', 'middle')
       .attr("transform", (d) =>
-        'translate(' + textArc.centroid(d)[0] + ',' + textArc.centroid(d)[1] + ')' + " rotate(" + angle(d) + ")"
+        'translate(' + textArc.centroid(d) + ')' + " rotate(" + this.angle(d) + ")"
       )
       .style('font-size', '8px')
       .style('font-weight', 'bold')
       .style('fill', 'white')
       .style('opacity', 0)
   }
-
-
 
   render() {
     return(
