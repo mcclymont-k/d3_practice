@@ -79,15 +79,19 @@ class PieChart extends Component {
       )
 
     function angle(d) {
-      var a = (d.startAngle + d.endAngle) * 90 / Math.PI - 90;
-      return a - 180;
+      var a = (d.startAngle + d.endAngle) * 90 / Math.PI -90;
+      console.log(a)
+      return a < 0 ? a : a - 180;
     }
 
     g.append('text')
       .text((d) => {
         return 'Name Length: ' + d.data.name
       })
-      .attr("transform", (d) => 'translate(' + textArc.centroid(d) + ')' + " rotate(" + angle(d) + ")")
+      .attr('text-anchor', 'middle')
+      .attr("transform", (d) =>
+        'translate(' + textArc.centroid(d)[0] + ',' + textArc.centroid(d)[1] + ')' + " rotate(" + angle(d) + ")"
+      )
       .style('font-size', '8px')
       .style('font-weight', 'bold')
       .style('fill', 'white')
