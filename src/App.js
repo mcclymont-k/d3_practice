@@ -3,6 +3,7 @@ import './App.css';
 import DragDrop from './components/DragDrop'
 import PieChart from './components/PieChart'
 import TopBar from './components/TopBar'
+import Brush from './components/Brush'
 
 class App extends Component {
   render() {
@@ -22,6 +23,8 @@ class App extends Component {
           <PieChart />
           <div className='spacer'></div>
           <h1>Other Chart</h1>
+          <h2>An other thing</h2>
+          <Brush />
         </div>
       </div>
     );

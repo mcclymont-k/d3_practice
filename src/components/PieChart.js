@@ -48,7 +48,6 @@ class PieChart extends Component {
   }
 
   makeChart() {
-    console.log(this.state.nameLengths)
     let color = d3.scaleLinear()
       .domain([1, 25])
       .range(['rgb(245, 108, 21)', 'rgb(180, 33, 9)'])
@@ -58,7 +57,6 @@ class PieChart extends Component {
     let pieArray = []
     this.state.nameLengths.forEach(name => pieArray.push(name.length))
     let pie = d3.pie().value(d => d.length)(this.state.nameLengths)
-    // let pie = d3.pie().value(d => d)(pieArray)
     let g = mainContainer.selectAll('.arc')
       .data(pie)
       .enter().append('g')

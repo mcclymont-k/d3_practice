@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import * as d3 from "d3"
-const grey = 'rgb(128, 158, 155)'
 
 class DragDrop extends Component {
   constructor() {
@@ -10,7 +9,6 @@ class DragDrop extends Component {
 
   componentDidMount() {
     let mainContainer = d3.select(this.refs.svgContainer)
-
     // Append starting line
     mainContainer.append('line')
     .style('stroke', 'black')
