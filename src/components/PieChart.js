@@ -7,12 +7,11 @@ class PieChart extends Component {
     super()
     this.state = {
       nameLengths: []
-
     }
   }
 
   componentWillMount() {
-    fetch('https://randomuser.me/api/?results=10')
+    fetch('https://randomuser.me/api/?results=100')
       .then(result => result.json())
       .then(data => {
         let results = data.results
@@ -49,10 +48,10 @@ class PieChart extends Component {
   }
 
   makeChart() {
-    let lengthOfNames = this.state.nameLengths.length
+    console.log(this.state.nameLengths)
     let color = d3.scaleLinear()
-      .domain([0, lengthOfNames])
-      .range(['#3e96bc', 'red'])
+      .domain([1, 25])
+      .range(['rgb(245, 108, 21)', 'rgb(180, 33, 9)'])
     let mainContainer = d3.select(this.refs.svgContainer)
     let arc = d3.arc().outerRadius(250).innerRadius(0)
     let textArc = d3.arc().outerRadius(250).innerRadius(150)
@@ -67,7 +66,7 @@ class PieChart extends Component {
       .attr('transform', 'translate(300,400)')
     g.append('path')
       .attr('d', arc)
-      .style('fill', (d) => color(d.index))
+      .style('fill', (d) => color(d.data.length))
       .on('mouseover', (d,i,n) =>
         d3.select(d3.event.target.nextElementSibling)
           .transition()
@@ -86,6 +85,7 @@ class PieChart extends Component {
         return 'Name Length: ' + d.data.name
       })
       .attr('text-anchor', 'middle')
+      .style('pointer-events', 'none')
       .attr("transform", (d) =>
         'translate(' + textArc.centroid(d) + ')' + " rotate(" + this.angle(d) + ")"
       )
