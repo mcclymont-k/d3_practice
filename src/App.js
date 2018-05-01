@@ -4,6 +4,7 @@ import DragDrop from './components/DragDrop'
 import PieChart from './components/PieChart'
 import TopBar from './components/TopBar'
 import Brush from './components/Brush'
+import ForceChart from './components/ForceChart'
 
 class App extends Component {
   render() {
@@ -34,6 +35,10 @@ class App extends Component {
             the brusher to see the change
           </h2>
           <Brush />
+          <div className='spacer'></div>
+          <h1>Force Chart</h1>
+          <h2>A force chart - may the fourth be with you</h2>
+          <ForceChart />
         </div>
       </div>
     );

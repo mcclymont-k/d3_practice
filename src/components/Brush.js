@@ -57,7 +57,7 @@ class Brush extends Component {
 
   render() {
     return(
-      <svg height='400px' width="600px" ref='brushContainer' className='brushContainer'></svg>
+      <svg height='800px' width="600px" ref='brushContainer' className='brushContainer'></svg>
     )
   }
 
