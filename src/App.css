@@ -12,6 +12,7 @@ body {
 
 .mainContainer {
   display: grid;
+  max-width: 700px;
   grid-template-rows: repeat(5, 60px 40px auto 1000px);
   grid-gap: 20px;
   width: 50vw;
@@ -24,7 +25,7 @@ body {
 
 .mainContainer h2 {
   color: black;
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .svgContainer {

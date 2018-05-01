@@ -87,7 +87,7 @@ class PieChart extends Component {
       .attr("transform", (d) =>
         'translate(' + textArc.centroid(d) + ')' + " rotate(" + this.angle(d) + ")"
       )
-      .style('font-size', '8px')
+      .style('font-size', '9px')
       .style('font-weight', 'bold')
       .style('fill', 'white')
       .style('opacity', 0)
