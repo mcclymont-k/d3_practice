@@ -37,8 +37,10 @@ class App extends Component {
           <Brush />
           <div className='spacer'></div>
           <h1>Force Chart</h1>
-          <h2>A force chart - the data pieces have repulsive forces on them that
-          keep them an exact distance apart. Refresh the browser to see the forces acting.</h2>
+          <h2>A force chart - the data pieces have forces on them that
+          keep them an exact distance apart or atract them together. Change the
+          strength of the force by entering a number into the text field and
+          pressing enter. +ve numbers are attractive, -ve numbers are repulsive.</h2>
           <ForceChart />
         </div>
       </div>

@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import * as d3 from "d3"
 
-let data = [{name: 'Kieran'}, {name: "Sarah"}, {name: 'Gwiian'}, {name: 'John'}]
+let data = [{name: 'Kieran'}, {name: "Sarah"}, {name: 'Gwiian'}, {name: 'John'},
+ {name: 'John'}, {name: 'John'}, {name: 'John'}, {name: 'John'}, {name: 'John'}, {name: 'John'}]
 const height = 800
 const width = 600
 const radius = 10
@@ -10,14 +11,14 @@ let simulation = d3.forceSimulation()
   .force('charge', d3.forceManyBody().strength(-30))
   .stop()
 
-
 class ForceChart extends Component {
 
   constructor(props) {
     super(props)
     this.forceTick = this.forceTick.bind(this)
-    this.state ={}
-
+    this.state ={
+      strength: -30
+    }
   }
 
   componentWillMount() {
@@ -34,9 +35,14 @@ class ForceChart extends Component {
 
   componentDidUpdate() {
     this.renderShapes()
+    simulation.force('charge', d3.forceManyBody().strength(this.state.strength))
+    simulation.nodes(data).alpha(0.9).restart()
   }
 
   renderShapes() {
+    let color = d3.scaleOrdinal()
+      .domain([0,9])
+      .range(['#1992cb', 'red', 'yellow', '#5bef5b', 'purple', '#c0ab38', 'black', 'lightblue', 'indigo', '#f3bceecc'])
     this.circles = this.forceContainer.selectAll('circle')
       .data(data, d => d.name)
 
@@ -45,6 +51,8 @@ class ForceChart extends Component {
     this.circles.enter().append('circle')
       .merge(this.circles)
       .attr('r', radius)
+      .style('fill', (d, i) => color(i))
+      .attr('opacity', 0.8)
   }
 
   forceTick() {
@@ -52,9 +60,19 @@ class ForceChart extends Component {
       .attr('cy', d => d.y)
   }
 
+  changeStrength(e) {
+    e.preventDefault()
+    this.setState({strength: Number(this.textInput.value)})
+  }
+
   render() {
     return(
-      <svg height={height} width={width} ref='forceContainer'></svg>
+      <div className="mainForceContainer">
+        <svg height={height} width={width} ref='forceContainer'></svg>
+        <form onSubmit={e => this.changeStrength(e)} className='mainInput'>
+          <input placeholder='Press enter to submit' type='text'ref={input => this.textInput = input}></input>
+        </form>
+      </div>
     )
   }
 }

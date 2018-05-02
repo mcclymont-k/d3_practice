@@ -28,6 +28,16 @@ body {
   font-size: 11px;
 }
 
+.mainForceContainer {
+  position: relative
+}
+
+.mainInput{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 .svgContainer {
   border: 1px solid black;
 }

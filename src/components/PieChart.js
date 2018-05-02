@@ -17,7 +17,7 @@ class PieChart extends Component {
         let results = data.results
         let nameLengths = []
         let nameFinal = []
-        data.results.forEach(data => {
+        results.forEach(data => {
           let nameLength = data.name.first.split('').length + data.name.last.split('').length
           nameLengths.push(nameLength)
         })
@@ -26,7 +26,7 @@ class PieChart extends Component {
         for (let i = minNum; i <= maxNum; i++) {
           let nameHolder = []
           nameLengths.forEach(name => name === i ? nameHolder.push(name) : '')
-          nameHolder.length > 0 ? nameFinal.push(nameHolder): ''
+          nameHolder.length > 0 ? nameFinal.push(nameHolder): []
         }
         nameFinal.forEach(nameArray => {
           let length = nameArray.length
@@ -85,7 +85,7 @@ class PieChart extends Component {
       .attr('text-anchor', 'middle')
       .style('pointer-events', 'none')
       .attr("transform", (d) =>
-        'translate(' + textArc.centroid(d) + ')' + " rotate(" + this.angle(d) + ")"
+        `translate(${textArc.centroid(d)}) rotate(${this.angle(d)})`
       )
       .style('font-size', '9px')
       .style('font-weight', 'bold')
