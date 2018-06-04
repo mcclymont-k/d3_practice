@@ -64,3 +64,12 @@ body {
 .topBarContainer button:hover {
   background-color: lightgrey;
 }
+
+.image{
+  width: 140px;
+  height: 140px;
+  position: absolute;
+  left: 100px;
+  top: 202rtpx;
+  border-radius: 50%
+}

@@ -25,6 +25,7 @@ class TopBar extends Component {
         <button data-set='1' onClick={e => this.smoothScroll(e)}>2</button>
         <button data-set='2' onClick={e => this.smoothScroll(e)}>3</button>
         <button data-set='3' onClick={e => this.smoothScroll(e)}>4</button>
+        <button data-set='4' onClick={e => this.smoothScroll(e)}>5</button>
       </div>
     )
   }

@@ -5,6 +5,7 @@ import PieChart from './components/PieChart'
 import TopBar from './components/TopBar'
 import Brush from './components/Brush'
 import ForceChart from './components/ForceChart'
+import LinearGradient from './components/LinearGradient'
 
 class App extends Component {
   render() {
@@ -42,6 +43,14 @@ class App extends Component {
           strength of the force by entering a number into the text field and
           pressing enter. +ve numbers are attractive, -ve numbers are repulsive.</h2>
           <ForceChart />
+          <div className='spacer'></div>
+          <h1>Linear Gradient</h1>
+          <h2>
+            Click on any area on the graph to display a data node. The graph will
+            then calculate the linear gradient and display it as a red line. This demonstrates
+            the line of best fit for the data presented.
+          </h2>
+          <LinearGradient />
         </div>
       </div>
     );

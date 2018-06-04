@@ -42,11 +42,13 @@ class Brush extends Component {
     brush.move(brushContainer, [0,50])
 
     brush.on('brush', (d) => {
+      console.log(d3.select('.selection'))
       let brushPosition = d3.select('.selection').attr('x')
       let circlesSelector = document.querySelectorAll('.circle')
       circlesSelector.forEach(circle => {
         let eachCircleX = circle.__data__[0]
         if (eachCircleX > brushPosition && eachCircleX < (Number(brushPosition) + 50)) {
+          console.log(circle.__data__)
           d3.select(circle).style('fill', 'blue')
         } else {
           d3.select(circle).style('fill', 'grey')
