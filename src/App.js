@@ -46,9 +46,12 @@ class App extends Component {
           <div className='spacer'></div>
           <h1>Linear Gradient</h1>
           <h2>
-            Click on any area on the graph to display a data node. The graph will
-            then calculate the linear gradient and display it as a red line. This demonstrates
-            the line of best fit for the data presented.
+            Click on the svg to display a data node. After 2 nodes are placed, the graph will
+            calculate the linear gradient and display it as a red line. This demonstrates
+            the line of best fit for the data presented. The coefficient of determination
+            shows us the confidence value. The closer to 1 it is, the more representative
+            the line is of the data, the closer to 0 it is, the less likely it is that
+            the 2 values have a linear relationship.
           </h2>
           <LinearGradient />
         </div>
